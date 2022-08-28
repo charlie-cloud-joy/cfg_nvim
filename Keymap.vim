@@ -1,18 +1,19 @@
 
 " ================================= Braces & Brackets =================
 
-  source $HOME/.config/nvim/Brackets.vim
-
-" ================================= YAML ==============================
-
-  nnoremap <Leader>yml ggI--- #<esc>:r!date -u +\%s<CR>kJx2o<esc>I...<esc>kms
+  exe "source " expand(prefix) . "Brackets.vim"
 
 " ================================= Comments ==========================
 
-   nnoremap <Leader># mrI# <esc>`r
-   nnoremap <Leader><A-#> mr^d2l`r
-   vnoremap # <c-v>I# <esc>
-   vnoremap <A-#> I<Del><Del><esc>
+nnoremap <Leader># mrI# <esc>`r
+nnoremap <Leader><A-#> mr^d2l`r
+vnoremap # <c-v>mh0I# <esc>`h
+vnoremap / <c-v>mh0I// <esc>`h
+vnoremap <a-/> :s/\/\/ //<CR>
+vnoremap ' <c-v>mh0I' <esc>`h
+vnoremap <a-'> :s/\' //<CR>
+vnoremap " <c-v>mh0I" <esc>`h
+vnoremap <a-"> :s/\" //<CR>
 
 " ================================= Completion ========================
 
@@ -50,35 +51,37 @@
 " ================================ Shebang ============================
 
   nnoremap 3r mhggI#!/usr/bin/env ruby<CR># frozen_string_literal: true<CR><esc>`h
-  nnoremap 3b mhggI#!/bin/bash<CR><esc>`h
+  nnoremap 3b mhggI#!/bin/bash<esc>`h:w<CR>:e<CR>o<CR>
 
 " ================================ Utility ============================
 
   nnoremap ~ :r!
   inoremap kj <esc>l
   inoremap KJ <esc>l
-  vnoremap KJ <esc>l
   vnoremap kj <esc>l
+  vnoremap KJ <esc>l
   nnoremap X :bd!1<CR>
-  nnoremap D :r!date -u +\%s<CR>Jx
-  nnoremap <c-l> :lua lsp.vim.buf.formatting()<CR>
-  nnoremap <c-s> :w<CR>
-  inoremap <c-s> <c-o>:w<CR>
-  nnoremap <c-e> :e<CR>
+  nnoremap <c-l> :lua vim.lsp.buf.formatting_sync()<CR>
+  nnoremap <c-s> :w<CR>:e<CR>
   nnoremap <c-x> :q<CR>
   nnoremap <Leader>r :source $MYVIMRC<CR>
+  nnoremap <Leader>R :set nu relativenumber!<CR>
   nnoremap <Leader>q :q!<CR>
   nnoremap <Leader>% :! ./%<CR>
+  nnoremap <Leader>ls :r!project_find<CR>
   nnoremap <Leader>t :tabnew 
+  nnoremap <Leader>n :new 
+  nnoremap <A-r> :resize 
   nnoremap <A-t> :tabfind 
   nnoremap <A-f> :sfind 
   nnoremap <c-f> :set filetype=
-  nnoremap <A-r> :resize 
-  nnoremap <Leader>col :sfind ~/.config/nvim/Color.vim<CR>
-  nnoremap <Leader>key :sfind ~/.config/nvim/Keymap.vim<CR>
-  nnoremap <Leader>init :sfind ~/.config/nvim/init.vim<CR>
+  nnoremap <Leader>col :exe "tabfind " expand(color_file)<CR>
+  nnoremap <Leader>key :tabfind ~/.config/nvim/Keymap.vim<CR>
+  nnoremap <Leader>init :tabfind ~/.config/nvim/init.vim<CR>
+  nnoremap <Leader>yml ggO--- #<esc>:r!date -u +\%s<CR>kJGo...<esc>kA
   nnoremap <Leader>s :w 
   nnoremap <Leader>S :w 
+  nnoremap D :r!date -u +\%s<CR>Jx
 
 " ================================= Whitespace Toggle =================
 

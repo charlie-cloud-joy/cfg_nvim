@@ -7,17 +7,18 @@
   inoremap [[<space> [[  ]]<c-o>F 
   inoremap {{<space> {  }<c-o>F 
   inoremap <<<space> <  ><c-o>F 
-  inoremap "" ""<c-o>F"
-  inoremap '' ''<c-o>F'
-  inoremap `` ``<c-o>F`
+  inoremap "" ""<esc>F"a
+  inoremap '' ''<esc>F'a
+  inoremap `` ``<esc>F`a
   inoremap ('( ('')<c-o>F'
-  inoremap (( ()<c-o>F)
-  inoremap [[ []<c-o>F]
-  inoremap {{ {}<c-o>F}
-  inoremap << <><c-o>F>
+  inoremap ("( ("")<c-o>F"
+  inoremap (( ()<esc>F(a
+  inoremap [[ []<esc>F[a
+  inoremap {{ {}<esc>F{a
+  inoremap << <><esc>F<a
   inoremap <%= <%=<space><space>%><c-o>F 
   inoremap <%<space> <%<space><space>%><c-o>F 
-  inoremap \"\"  \"\"<c-o>F 
+  inoremap \" \"\"<esc>F"a
   inoremap "s <esc>lmh`>a"<c-o>`h"
   inoremap 's <esc>lmh`>a'<c-o>`h'
   inoremap `s <esc>lmh`>a`<c-o>`h`
@@ -36,3 +37,8 @@
 " ================================= Visual Wrappers ==================
 
   vnoremap s' <esc>`>a'<c-o>`<'<esc>v`>l
+  vnoremap s" <esc>`>a"<c-o>`<"<esc>v`>l
+  vnoremap s` <esc>`>a`<c-o>`<`<esc>v`>l
+  vnoremap s[ <esc>`>a]<c-o>`<[<esc>v`>l
+  vnoremap s( <esc>`>a)<c-o>`<(<esc>v`>l
+  vnoremap s{ <esc>`>a}<c-o>`<{<esc>v`>l

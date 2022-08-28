@@ -19,6 +19,7 @@
   set omnifunc=htmlcomplete#CompleteTags
   autocmd FileType ruby setl omnifunc=syntaxcomplete#Complete
 
+  let prefix    = "~/.config/nvim/"
   let $BASH_ENV = "~/.io/config/.aliases"
 
   " Update Leader Key to Space
@@ -35,6 +36,7 @@
     autocmd BufLeave,FocusLost,InsertEnter *  set norelativenumber
   augroup END
   autocmd BufEnter,BufWrite * Minimap
+  
   autocmd BufWritePre * lua vim.lsp.buf.formatting()
 
 " =================== Swap Files Off ==================================
@@ -45,7 +47,7 @@
 
 " =================== Persistent Undo ==================================
 
-  silent !mkdir ~/.config/nvim/.backups
+  silent !mkdir ~/.config/nvim/.backups > /dev/null 2>$1
   set undodir=~/.config/nvim/.backups
   set undofile
 
@@ -57,7 +59,7 @@
 
 " =================== Keys =============================================
 
-  source ~/.config/nvim/Keymap.vim 
+  exe "source " expand(prefix) . "Keymap.vim"
 
 " =================== Indentation ======================================
 
@@ -80,27 +82,18 @@
   nnoremap <silent> <Leader>[ :exe "resize" . (winheight(0) * 3/2)<CR>
   nnoremap <silent> <Leader>] :exe "resize" . (winheight(0) * 2/3)<CR>
 
-" =================== Seeing Is Beliving ==============================
-
-  nmap <Leader>b :%.!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk<CR>;
-  nmap <Leader>n :%.!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk --xmpfilter-style<CR>;
-  nmap <Leader>c  :%.!seeing_is_believing --clean<CR>
-  nmap mA # => <esc>
-  vmap <leader>m :norm A # => <esc>
-
 " =================== Plugins Load =====================================
 
   source ~/.config/nvim/Plugins.vim
 
 " =================== Colors ==========================================
 
-  source ~/.config/nvim/Color.vim
+  let color_file = expand(prefix) . "color/Emerald.vim"
+  exe "source "    expand(color_file)
 
 " =================== Status Line =====================================
 
   set statusline=
-  set statusline+=%#LineNr#
-  " set statusline+=%=
   set statusline+=\ \ \ \ \ \ 
   set statusline+=\ %f
   set statusline+=\ \ \ \ \ \ 
@@ -113,4 +106,4 @@
 
 " ================================= Language Servers ==================
 
-  luafile ~/.config/nvim/lua/language_servers
+  exe "luafile " expand(prefix) . "lua/language_servers"
