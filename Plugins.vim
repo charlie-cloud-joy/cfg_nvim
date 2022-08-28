@@ -1,0 +1,13 @@
+set runtimepath+=/home/cloudjoy/.config/nvim/plugs/ervandew/supertab
+set runtimepath+=/home/cloudjoy/.config/nvim/plugs/tpope/vim-endwise
+set runtimepath+=/home/cloudjoy/.config/nvim/plugs/junegunn/vim-easy-align
+set runtimepath+=/home/cloudjoy/.config/nvim/plugs/kien/ctrlp.vim
+set runtimepath+=/home/cloudjoy/.config/nvim/plugs/nvim-treesitter/nvim-treesitter
+set runtimepath+=/home/cloudjoy/.config/nvim/plugs/neovim/nvim-lspconfig
+set runtimepath+=/home/cloudjoy/.config/nvim/plugs/williamboman/nvim-lsp-installer
+set runtimepath+=/home/cloudjoy/.config/nvim/plugs/hrsh7th/nvim-cmp
+set runtimepath+=/home/cloudjoy/.config/nvim/plugs/hrsh7th/cmp-nvim-lsp
+set runtimepath+=/home/cloudjoy/.config/nvim/plugs/hrsh7th/cmp-buffer
+set runtimepath+=/home/cloudjoy/.config/nvim/plugs/hrsh7th/cmp-path
+set runtimepath+=/home/cloudjoy/.config/nvim/plugs/hrsh7th/cmp-cmdline
+set runtimepath+=/home/cloudjoy/.config/nvim/plugs/wfxr/minimap.vim
